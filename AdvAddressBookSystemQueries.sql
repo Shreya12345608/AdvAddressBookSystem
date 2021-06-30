@@ -43,3 +43,14 @@ update AddressBook set type='Me' where firstName='Shreya'
 update AddressBook set name='SelfContact' where firstName='Shreya'
 
 select count(email) from AddressBook where type='Superstars'
+
+
+insert into AddressBook values
+('Ritik','Pal','Nagpur','Nagpur','MH',729,76788,'ritik@gmail.com','Family','Brother'),
+('Pranay','Pal','Betul','MH','MP',729,76788,'pranay@gmail.com','Friend','Friend'),
+('Abbhi','G','KKatol','Nagp','MH',727,76688,'abhi@gmail.com','Family','BigBrother'),
+('pragya','G','Kolkata123','Nagpur','MH',727,76688,'pragya@gmail.com','Friend','Sister'),
+('Pragati','Banerjee','Amravati','Amravati','MH',123,77777,'pragati@gmail.com','Family','Mom'),
+('Tushar','Banerjee','Nagpur','Nagpur','MH',123,78888,'tushar@gmail.com','Family','Father'),
+('Rounak','Ghosh','Kolkata123','Kolkata','West Bengal',345,77888,'ranak@gmail.com','Friend','Bro'),
+('Sameer','Ali','Delhi123','Delhi','Haryana',789,77788,'sameer@gmail.com','Friend','Uncle')
