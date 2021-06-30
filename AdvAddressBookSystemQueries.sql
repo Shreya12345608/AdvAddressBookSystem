@@ -34,3 +34,10 @@ insert into AddressBook values
 ('Ekta','Khan','Mumbai123','Mumbai','Maharashtra',38185,45657465,'Ekta@gmail.com')
 
 select * from AddressBook where city ='Mumbai' order by firstName
+
+
+alter table AddressBook add type varchar(20),name varchar(20)
+update AddressBook set type='Superstars' where firstName='Ekta' or firstName='Prajakta'
+update AddressBook set name='MumbaiContacts' where firstName='Prajakta' or firstName='Ekta'
+update AddressBook set type='Me' where firstName='Shreya'
+update AddressBook set name='SelfContact' where firstName='Shreya'
