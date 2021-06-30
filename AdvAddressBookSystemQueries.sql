@@ -29,3 +29,8 @@ select * from AddressBook where city='Mumbai' or state='Maharashtra'
 
 
 select count(email) TotalPersons from AddressBook
+
+insert into AddressBook values
+('Ekta','Khan','Mumbai123','Mumbai','Maharashtra',38185,45657465,'Ekta@gmail.com')
+
+select * from AddressBook where city ='Mumbai' order by firstName
