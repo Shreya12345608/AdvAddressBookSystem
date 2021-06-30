@@ -20,3 +20,4 @@ insert into AddressBook values
 ('Prajakta','Bramhe','Mumbai123','Mumbai','Maharashtra',550022,78577964412,'prajaktab@gmail.com')
 
 update AddressBook set zip =58965 where firstName='Prajakta'
+delete from AddressBook where firstName='Prajakta'
