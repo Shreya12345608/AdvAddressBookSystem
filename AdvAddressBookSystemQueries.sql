@@ -41,3 +41,5 @@ update AddressBook set type='Superstars' where firstName='Ekta' or firstName='Pr
 update AddressBook set name='MumbaiContacts' where firstName='Prajakta' or firstName='Ekta'
 update AddressBook set type='Me' where firstName='Shreya'
 update AddressBook set name='SelfContact' where firstName='Shreya'
+
+select count(email) from AddressBook where type='Superstars'
