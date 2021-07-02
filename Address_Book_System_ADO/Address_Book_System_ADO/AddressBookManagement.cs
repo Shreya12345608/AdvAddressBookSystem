@@ -64,6 +64,7 @@ namespace Address_Book_System_ADO
                         // Mapping the data to the employee model class object
                         while (reader.Read())  
                         {
+
                             model.FirstName       = reader.GetString(0);
                             model.LastName        = reader.GetString(1);
                             model.Address         = reader.GetString(2);
