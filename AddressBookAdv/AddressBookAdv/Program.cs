@@ -22,23 +22,17 @@ namespace AddressBookAdv
             model.State = "Maharashtra";
             model.Zip = 410022;
             model.PhoneNumber = 2635145678;
-            model.EmailId = "shreya@gmail.com";
+            model.EmailId = "shreya111@gmail.com";
             model.AddressBookType = "Friend";
             model.AddressBookName = "SHreyaM";
-            bool res = addressBookManagement.AddDataToTable(model);
+            //bool res = addressBookManagement.AddDataToTable(model);
 
-            Console.WriteLine(res);
+            // Console.WriteLine(res);
+            addressBookManagement.EditContactUsingPersonName(model);
 
 
             // addressBookManagement.GetAllContact(); //UC2
             Console.ReadLine();
         }
-        // UC3:- Ability to insert new Contacts to Address Book 
-        //public static void AddNewContactDetails()
-        //{
-
-        //    //Console.WriteLine(repository.AddDataToTable(model) ? "Record inserted successfully\n" : "Record inserted Failed");
-        //}
     }
-
 }

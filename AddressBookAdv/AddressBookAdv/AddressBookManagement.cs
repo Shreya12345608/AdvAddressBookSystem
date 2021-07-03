@@ -104,19 +104,63 @@ namespace AddressBookAdv
             }
 
         }
-        // UC3:- Ability to insert new Contacts to Address Book 
+        //// UC3:- Ability to insert new Contacts to Address Book 
 
-        public bool AddDataToTable(AddressBookModel model)
+        //public bool AddDataToTable(AddressBookModel model)
+        //{
+        //    try
+        //    {
+        //      /// string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=AddressBookServiceDB;Integrated Security=True";
+        //       // SqlConnection connection = new SqlConnection(connectionString);
+        //        // Using the connection established
+        //        using (connection) 
+        //        {
+        //            // Implementing the stored procedure
+        //            SqlCommand command = new SqlCommand("AddAddressDetails", connection); 
+        //            command.CommandType = CommandType.StoredProcedure;
+        //            command.Parameters.AddWithValue("@FirstName", model.FirstName);
+        //            command.Parameters.AddWithValue("@LastName", model.LastName);
+        //            command.Parameters.AddWithValue("@Address", model.Address);
+        //            command.Parameters.AddWithValue("@City", model.City);
+        //            command.Parameters.AddWithValue("@State", model.State);
+        //            command.Parameters.AddWithValue("@Zip", model.Zip);
+        //            command.Parameters.AddWithValue("@PhoneNumber", model.PhoneNumber);
+        //            command.Parameters.AddWithValue("@EmailID", model.EmailId);
+        //            command.Parameters.AddWithValue("@addressBookType", model.AddressBookType);
+        //            command.Parameters.AddWithValue("@addressBookName", model.AddressBookName);
+
+        //            connection.Open();
+        //            var result = command.ExecuteNonQuery();
+
+        //            //Return the result of the transaction 
+        //            if (result != 0)
+        //            {
+        //                return true;
+        //            }
+        //            return false;
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw new Exception(ex.Message);
+        //    }
+        //    finally
+        //    {
+        //        connection.Close();
+        //    }
+        //}
+        public void EditContactUsingPersonName(AddressBookModel model)
         {
+             string connectionstring = @"data source=(localdb)\mssqllocaldb;initial catalog=addressbookservicedb;integrated security=true";
+            SqlConnection connection = new SqlConnection(connectionstring);
+            //SqlConnection connection = new SqlConnection(connectionString);
             try
             {
-              /// string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=AddressBookServiceDB;Integrated Security=True";
-               // SqlConnection connection = new SqlConnection(connectionString);
-                // Using the connection established
-                using (connection) 
+                using (connection)
                 {
-                    // Implementing the stored procedure
-                    SqlCommand command = new SqlCommand("AddAddressDetails", connection); 
+                    // string updateQuery = @"Update AddressBook  set firstName=@FirstName, lastName=@LastName, address=@Address,city=@City,state=@State, zip=@Zip, phoneNumber=@PhoneNumber, email=@EmailId, type=@AddressBookType , name=@AddressBookName  where firstName=@FirstName";
+                    SqlCommand command = new SqlCommand("spUpdateStudent", connection);
+                   // SqlCommand command = new SqlCommand(spUpdateStudent, connection);
                     command.CommandType = CommandType.StoredProcedure;
                     command.Parameters.AddWithValue("@FirstName", model.FirstName);
                     command.Parameters.AddWithValue("@LastName", model.LastName);
@@ -130,19 +174,14 @@ namespace AddressBookAdv
                     command.Parameters.AddWithValue("@addressBookName", model.AddressBookName);
 
                     connection.Open();
-                    var result = command.ExecuteNonQuery();
-                 
-                    //Return the result of the transaction 
-                    if (result != 0)
-                    {
-                        return true;
-                    }
-                    return false;
+                    command.ExecuteNonQuery();
+                    Console.WriteLine("Contact Updated successfully");
+                    connection.Close();
                 }
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
-                throw new Exception(ex.Message);
+                throw new Exception(e.Message);
             }
             finally
             {
